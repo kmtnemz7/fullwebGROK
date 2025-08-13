@@ -18,6 +18,12 @@
     .shine { position: relative; overflow: hidden; }
     .shine::after { content:""; position:absolute; inset:-200%; background: conic-gradient(from 90deg at 50% 50%, transparent, rgba(255,255,255,.06), transparent 25%); animation: spin 10s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
+    /* Added fade-in animation for calls */
+    .call-card { animation: fadeIn 0.5s ease-in; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-[Inter] grad" id="top">
@@ -81,7 +87,108 @@
         <div class="mt-4 flex flex-wrap gap-3 items-center">
           <button id="refreshBtn" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm">Refresh</button>
           <span class="text-xs text-slate-400">Auto-refresh <span id="autoBadge" class="px-2 py-0.5 rounded bg-emerald-600/30 border border-emerald-600 ml-1">ON</span></span>
-          <!-- Added toggle buttons -->
+          <button id="prevCallBtn" classgot it! I'll make the requested changes to your HTML code to:
+1. Change "Request demo" to "Claim Free Trial" and link it to `https://t.me/zeropingsub_bot`.
+2. Link the "open" button in the `Live Calls` section to `https://t.me/zeropingsub_bot` and enhance its styling with Tailwind classes for a nicer appearance.
+3. Add buttons to toggle between demo calls (I'll implement a "Previous Call" and "Next Call" to cycle through individual calls in `demo_calls.json`).
+4. Modify the call display to show calls smoothly every 10 seconds with a fade-in animation, instead of instantly.
+
+Since you specifically asked if it’s possible to make calls appear smoothly every 10 seconds on a static website, I’ll confirm it’s absolutely possible and implement a fade-in animation using CSS. The solution will remain fully static, compatible with Render, and use the `demo_calls.json` from your previous request.
+
+### Updated HTML
+Below is the modified HTML with all requested changes, including smooth animations for calls appearing every 10 seconds.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZeroPing — Meme Coin Signal Engine</title>
+  <meta name="description" content="ZeroPing: a Telegram-native signal engine for Solana meme coins. Fast pattern capture, clean outputs, actionable risk templates." />
+  <meta name="theme-color" content="#0B1221" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(8px); background: rgba(15,23,42,.6); }
+    .grad { background: radial-gradient(1200px 600px at 80% -10%, rgba(59,130,246,.25), transparent),
+                        radial-gradient(900px 500px at -10% 30%, rgba(16,185,129,.25), transparent); }
+    .shine { position: relative; overflow: hidden; }
+    .shine::after { content:""; position:absolute; inset:-200%; background: conic-gradient(from 90deg at 50% 50%, transparent, rgba(255,255,255,.06), transparent 25%); animation: spin 10s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    /* Added fade-in animation for calls */
+    .call-card { animation: fadeIn 0.5s ease-in; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-[Inter] grad" id="top">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50">
+    <div class="glass/80 bg-slate-900/50 border-b border-white/10">
+      <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <a href="#top" class="text-lg font-bold tracking-tight">Zero<span class="text-sky-400">Ping</span></a>
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-sky-300">About</a>
+          <a href="#live" class="hover:text-sky-300">Live Calls</a>
+          <a href="#contact" class="hover:text-sky-300">Access</a>
+        </div>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 hover:bg-white/5" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4">
+    <!-- HERO -->
+    <section class="py-20 md:py-28">
+      <div class="grid md:grid-cols-[1.1fr_.9fr] items-center gap-10">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+            Zero<span class="text-sky-400">Ping</span> — catch patterns no one else sees
+          </h1>
+          <p class="mt-5 text-slate-300 max-w-xl">
+            A Telegram-native signal engine for Solana memes. Built for <em>low latency</em>, <em>clean outputs</em>, and <em>actionable risk</em>. Parse, rank, and present opportunities in seconds.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-sky-500/20 to-emerald-500/20 blur-xl"></div>
+          <div class="relative rounded-3xl border border-white/10 bg-slate-900/50 p-6 shadow-2xl shine">
+            <!-- Ensure chart-flying.png exists in your public directory, or remove this line -->
+            <img src="chart-flying.png" alt="ZeroPing Chart" class="rounded-2xl" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16 md:py-24 border-t border-white/10">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold">What is ZeroPing?</h2>
+        <p class="mt-4 text-slate-300">
+          ZeroPing ingests channel signals, enriches with on-chain + context, then renders a compact, scannable block designed for fast chats. It prioritises <em>latency</em>, <em>signal quality</em>, and <em>clarity</em> over noise.
+        </p>
+      </div>
+    </section>
+
+    <!-- LIVE CALLS -->
+    <section id="live" class="py-16 md:py-24 border-t border-white/10">
+      <div class="max-w-5xl">
+        <div class="flex items-baseline justify-between gap-4">
+          <h2 class="text-3xl md:text-4xl font-bold">Live Calls</h2>
+        </div>
+
+        <!-- Controls -->
+        <div class="mt-4 flex flex-wrap gap-3 items-center">
+          <button id="refreshBtn" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm">Refresh</button>
+          <span class="text-xs text-slate-400">Auto-refresh <span id="autoBadge" class="px-2 py-0.5 rounded bg-emerald-600/30 border border-emerald-600 ml-1">ON</span></span>
+          <!-- Toggle buttons -->
           <button id="prevCallBtn" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm">Previous Call</button>
           <button id="nextCallBtn" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm">Next Call</button>
         </div>
@@ -100,9 +207,9 @@
     <section id="contact" class="py-16 md:py-24 border-t border-white/10">
       <div class="max-w-3xl">
         <h2 class="text-3xl md:text-4xl font-bold">Get Access</h2>
-        <p class="mt-4 text-slate-300">Private access for traders and communities. Request a demo or integration.</p>
+        <p class="mt-4 text-slate-300">Private access for traders and communities. Claim a free trial or join our Telegram.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <!-- Changed "Request demo" to "Claim Free Trial" and updated link -->
+          <!-- Changed to Claim Free Trial -->
           <a href="https://t.me/zeropingsub_bot" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-semibold">Claim Free Trial</a>
           <a href="https://t.me/ZeroPingX" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20">Telegram</a>
           <!-- Replace with your actual docs URL -->
@@ -138,10 +245,10 @@
 
     function callCard(item) {
       const ts = (item.timeISO || item.receivedAt || '').replace('T', ' ').replace('Z', '');
-      // Updated open button with styled Tailwind classes and new link
+      // Updated open button with styling
       const link = `<a href="https://t.me/zeropingsub_bot" target="_blank" class="px-3 py-1 rounded-xl bg-sky-600 hover:bg-sky-500 text-sm font-semibold">Open</a>`;
       return `
-      <article class="rounded-2xl border border-white/10 bg-slate-900/60 shadow-xl overflow-hidden">
+      <article class="call-card rounded-2xl border border-white/10 bg-slate-900/60 shadow-xl overflow-hidden">
         <div class="p-4 md:p-5">
           <div class="flex items-center justify-between gap-3 mb-3">
             <div class="text-xs text-slate-400">
@@ -213,7 +320,6 @@
       loadCalls();
     });
 
-    // Toggle buttons for previous/next call
     prevCallBtn.addEventListener('click', () => {
       auto = false;
       autoBadge.textContent = 'OFF';
