@@ -25,6 +25,14 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Added fade animation for Statistics button */
+    .fade-blue-to-green {
+      animation: fadeBlueToGreen 3s ease-in-out infinite alternate;
+    }
+    @keyframes fadeBlueToGreen {
+      from { background-color: #1e3a8a; } /* Tailwind's blue-900 */
+      to { background-color: #6ee7b7; } /* Tailwind's emerald-300 */
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-[Inter] grad" id="top">
@@ -37,6 +45,7 @@
           <a href="#about" class="hover:text-sky-300">About</a>
           <a href="#live" class="hover:text-sky-300">Demo Calls</a>
           <a href="#contact" class="hover:text-sky-300">Access</a>
+          <a href="https://t.me/ZeroPingstats" class="fade-blue-to-green text-white px-3 py-1 rounded-xl font-semibold hover:text-sky-300">Statistics</a>
         </div>
         <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 hover:bg-white/5" aria-label="Open menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -72,7 +81,7 @@
       <div class="max-w-3xl">
         <h2 class="text-3xl md:text-4xl font-bold">What is ZeroPing?</h2>
         <p class="mt-4 text-slate-300">
-      ZeroPing is a cutting-edge, Telegram signal engine tailored for meme coins, designed to deliver <em>low-latency</em>, <em>high-quality</em>, and <em>actionable</em> insights for traders. It processes real-time channel signals from Telegram, enriches them with on-chain data, and processes them through advanced analytics to produce compact, scannable outputs optimized for fast-paced chats. ZeroPing leverages <em>volume analysis</em> to detect spikes and trends in trading activity, <em>wallet tracking</em> to monitor key opportinities, and <em>liquidity level assessments</em> to evaluate market stability. It also identifies <em>current meta trends</em> to highlight emerging patterns in the ecosystem and analyzes <em>top holders</em> to detect concentration risks and whale activity. Prioritizing <em>latency</em>, <em>signal quality</em>, and <em>clarity</em>, ZeroPing filters out noise to deliver precise, actionable trading opportunities in seconds.
+          ZeroPing is a cutting-edge, Telegram signal engine tailored for meme coins, designed to deliver <em>low-latency</em>, <em>high-quality</em>, and <em>actionable</em> insights for traders. It processes real-time channel signals from Telegram, enriches them with on-chain data, and processes them through advanced analytics to produce compact, scannable outputs optimized for fast-paced chats. ZeroPing leverages <em>volume analysis</em> to detect spikes and trends in trading activity, <em>wallet tracking</em> to monitor key opportunities, and <em>liquidity level assessments</em> to evaluate market stability. It also identifies <em>current meta trends</em> to highlight emerging patterns in the ecosystem and analyzes <em>top holders</em> to detect concentration risks and whale activity. Prioritizing <em>latency</em>, <em>signal quality</em>, and <em>clarity</em>, ZeroPing filters out noise to deliver precise, actionable trading opportunities in seconds.
         </p>
       </div>
     </section>
@@ -109,10 +118,9 @@
         <h2 class="text-3xl md:text-4xl font-bold">Get Access</h2>
         <p class="mt-4 text-slate-300">Private access for traders and communities. Claim a free trial or join our Telegram.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <!-- Changed to Claim Free Trial -->
           <a href="https://t.me/zeropingsub_bot" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-semibold">Claim Free Trial</a>
           <a href="https://t.me/ZeroPingX" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20">Telegram</a>
-          <!-- Replace with your actual docs URL -->
+          <a href="https://t.me/ZeroPingstats" class="px-4 py-2.5 rounded-xl fade-blue-to-green text-white font-semibold">Statistics</a>
           <a href="https://docs.zeroping.example" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20">Docs</a>
         </div>
       </div>
